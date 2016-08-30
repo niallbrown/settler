@@ -41,7 +41,9 @@ apt-get update
 # Install Some Basic Packages
 
 apt-get install -y build-essential dos2unix gcc git libmcrypt4 libpcre3-dev \
-make python2.7-dev python-pip re2c supervisor unattended-upgrades whois vim libnotify-bin
+make python2.7-dev python-pip re2c supervisor unattended-upgrades whois vim libnotify-bin \
+libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev \
+autoconf bison
 
 # Set My Timezone
 
@@ -54,6 +56,33 @@ php-pgsql php-sqlite3 php-gd php-apcu \
 php-curl php7.0-mcrypt \
 php-imap php-mysql php-memcached php7.0-readline php-xdebug \
 php-mbstring php-xml php7.0-zip php7.0-intl php7.0-bcmath php-soap
+
+# Install ruby stuffs
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+source ~/.bashrc
+
+# Install NPM and NodeJS 6.X
+#sudo apt-get update
+#sudo apt-get install nodejs
+#sudo apt-get install npm
+curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get install nodejs
+
+# Install Grunt and Bower
+npm install -g grunt-cli
+npm install -g bower
+
+#Install Ruby 2.3.1
+
+# handle rbenv build install
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+rbenv install 2.3.1
+rbenv global 2.3.1
+
+
 
 # Install Composer
 
